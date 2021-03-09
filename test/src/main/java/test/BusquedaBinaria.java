@@ -1,7 +1,7 @@
 package test;
 
 public class BusquedaBinaria {
-    
+
     public static int BinarySearch(int[] list, int target) {
         if (list.length == 0 || target > list[list.length - 1] || target < list[0])
             return -1;
@@ -27,8 +27,8 @@ public class BusquedaBinaria {
 
     public static void main(String[] args) {
 
-        int[] listaOrdenada = { 1, 2, 8, 9, 14, 33, 54, 78 };
-        System.out.println("Resultado: " + BinarySearchDnW(listaOrdenada, 78, 0, listaOrdenada.length - 1));
+        int[] listaOrdenada = { 1, 2, 8, 9, 14, 33, 54, 78, 78 };
+        System.out.println("Resultado: " + BinarySearch(listaOrdenada, 8));
 
     }
 }
