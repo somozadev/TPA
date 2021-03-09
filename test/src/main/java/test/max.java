@@ -44,6 +44,7 @@ public class max {
 
         int[] lista = { 111, 2, 8, 6, 3, -2, 0, 5 };
         System.out.println("Resultado: " + MaxNum(lista));
+        //2 * T (n) + 1 >>> Order N ((because n log n))
 
     }
 
