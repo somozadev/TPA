@@ -32,3 +32,8 @@ public class BusquedaBinaria {
 
     }
 }
+
+
+
+
+///PARA EL PROXIMO DIA => BUSQUEDA TERNARIA (DIVIDIR EL ARRAY EN TRES TROZOS)
