@@ -32,7 +32,7 @@ public class BusquedaTernaria {
     public static void main(String[] args) {
 
         int[] listaOrdenada = { 1, 2, 8, 9, 14, 33, 54, 78 };
-        System.out.println("Resultado: " + TernarySearch(listaOrdenada,  78));
+        System.out.println("Resultado: " + TernarySearch(listaOrdenada,  14));
 
     }
 }
