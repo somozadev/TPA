@@ -1,3 +1,4 @@
+package test;
 public class Grafo<Clave, InfoVertice, Coste> {
 
 	protected class NodoVertice {

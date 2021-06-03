@@ -1,5 +1,9 @@
 package test;
 
+import java.util.ArrayList;
+
+import javax.lang.model.element.Element;
+
 public class Tree<T> {
 
     class Node {
@@ -47,8 +51,6 @@ public class Tree<T> {
         return this.mainNode.info;
     }
 
-
-
     /* CUSTOM METHODS */
 
     public int GetTreeDepth() {
@@ -59,7 +61,7 @@ public class Tree<T> {
     }
 
     public int GetTreeLeafNodes() {
-        if (!this.isEmpty())
+        if (this.isEmpty())
             return 0;
         else {
             if (this.LeftChild().isEmpty() && this.RightChild().isEmpty())
@@ -85,40 +87,54 @@ public class Tree<T> {
         }
     }
 
-    public boolean FindABB(Tree<Integer> tree, int data)
-    {
-        if(!tree.isEmpty())
-        {
+    public boolean FindABB(Tree<Integer> tree, int data) {
+        if (!tree.isEmpty()) {
             System.err.println("*");
-            if(data == tree.MainNode())
+            if (data == tree.MainNode())
                 return true;
-            
-            else
-            {
-                if ( data < tree.MainNode())
+
+            else {
+                if (data < tree.MainNode())
                     return FindABB(tree.LeftChild(), data);
-                
+
                 else
                     return FindABB(tree.RightChild(), data);
 
             }
-        }
-        else
+        } else
             return false;
 
     }
 
-    public static void main(String[] args)
-    {
-        Tree<Integer> s2la = new Tree<Integer>(new Tree<Integer>(),4,new Tree<Integer>());
-        Tree<Integer> s2ra = new Tree<Integer>(new Tree<Integer>(),6,new Tree<Integer>());
-        Tree<Integer> s2lb = new Tree<Integer>(new Tree<Integer>(),16,new Tree<Integer>());
-        Tree<Integer> s2rb = new Tree<Integer>(new Tree<Integer>(),22,new Tree<Integer>());
+    public ArrayList<T> GetElementsInlastLevel() {
+        ArrayList<T> elements = new ArrayList<T>();
+        RecursiveGet(this, elements);
+        return elements;
+    }
 
-        Tree<Integer> s1l = new Tree<Integer>(s2la,8,s2ra);
-        Tree<Integer> s1r = new Tree<Integer>(s2lb,12,s2rb);
-        Tree<Integer> raiz = new Tree<Integer>(s1l,10,s1r);
-        
+    private void RecursiveGet(Tree<T> tree, ArrayList<T> elements) {
+        if (!tree.isEmpty()) {
+            if (tree.GetTreeLeafNodes() > 1) {
+                RecursiveGet(tree.LeftChild(), elements);
+                RecursiveGet(tree.RightChild(), elements);
+
+            } else {
+                elements.add(tree.mainNode.info);
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Tree<Integer> s2la = new Tree<Integer>(new Tree<Integer>(), 4, new Tree<Integer>());
+        Tree<Integer> s2ra = new Tree<Integer>(new Tree<Integer>(), 6, new Tree<Integer>());
+        Tree<Integer> s2lb = new Tree<Integer>(new Tree<Integer>(), 16, new Tree<Integer>());
+        Tree<Integer> s2rb = new Tree<Integer>(new Tree<Integer>(), 22, new Tree<Integer>());
+
+        Tree<Integer> s1l = new Tree<Integer>(s2la, 8, s2ra);
+        Tree<Integer> s1r = new Tree<Integer>(s2lb, 12, s2rb);
+        Tree<Integer> raiz = new Tree<Integer>(s1l, 10, s1r);
+
         System.out.println("El N de nodos Hoja: " + raiz.GetTreeDepth());
     }
 
