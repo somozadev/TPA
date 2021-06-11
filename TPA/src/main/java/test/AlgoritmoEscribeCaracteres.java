@@ -1,6 +1,11 @@
 package test;
-
-import java.util.ArrayList;
+/**
+ * 
+ * @author Marcos Somoza Corral
+ * @expediente 21711787
+ * @fecha 03-06-2021
+ *
+ **/
 
 public class AlgoritmoEscribeCaracteres {
     /*
@@ -34,6 +39,9 @@ public class AlgoritmoEscribeCaracteres {
         Tree<Character> raiz = new Tree<Character>(s1l, 'A', s1r); // Nivel 1
 
         System.out.println("Elementos en el último nivel: " + raiz.GetElementsInlastLevel());
+
+
+        /* QUEDA HAECER SU PSEUDOCODIGO Y EL CALCULO RAZONADO DE LA EFICIENCIA */
     }
 
 }

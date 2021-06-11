@@ -1,4 +1,9 @@
 package test;
+
+import java.util.ArrayList;
+
+import javax.swing.event.ListDataEvent;
+
 public class Grafo<Clave, InfoVertice, Coste> {
 
 	protected class NodoVertice {
@@ -50,8 +55,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 
 	public void modificarVertice(Clave c, InfoVertice v) {
 		int i = 1;
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(c))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(c))
 			i++;
 		if (i <= vertices.longitud())
 			vertices.consultar(i).vertice = v;
@@ -61,8 +65,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		int i = 1;
 
 		// Busca el vertice que se le indique
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(c))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(c))
 			i++;
 
 		// Si el vertice a eliminar existe, se elimina, junto con todas las
@@ -89,8 +92,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 
 	public boolean existeVertice(Clave c) {
 		int i = 1;
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(c))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(c))
 			i++;
 		return i <= vertices.longitud();
 	}
@@ -98,20 +100,17 @@ public class Grafo<Clave, InfoVertice, Coste> {
 	public void insertarArista(Clave o, Clave d, Coste c) {
 		int i = 1;
 		// Busca el vertice origen
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(o))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(o))
 			i++;
 
 		int j = 1;
 		// Busca el vertice destino
-		while (j <= vertices.longitud()
-				&& !vertices.consultar(j).clave.equals(d))
+		while (j <= vertices.longitud() && !vertices.consultar(j).clave.equals(d))
 			j++;
 
 		// Si existe, introduce la arista
 		if (i <= vertices.longitud() && j <= vertices.longitud()) {
-			aristas.consultar(i).insertar(1,
-					new NodoArista(vertices.consultar(j), c));
+			aristas.consultar(i).insertar(1, new NodoArista(vertices.consultar(j), c));
 			// Actualiza el grado de salida del vertice origen
 			vertices.consultar(i).gradoSalida++;
 
@@ -125,8 +124,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		int i = 1;
 
 		// Busca el vertice origen
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(o))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(o))
 			i++;
 
 		// Si existe, busca el vertice destino y modifica el peso de la arista
@@ -147,8 +145,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		int i = 1;
 
 		// Busca el vertice origen
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(o))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(o))
 			i++;
 
 		// Si existe, busca el vertice destino y elimina la arista
@@ -163,7 +160,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 					// Actualiza el grado de entrada del vertice destino
 					aristas.consultar(i).consultar(j).destino.gradoSalida--;
 
-					// Borra el vertice 
+					// Borra el vertice
 					aristas.consultar(i).borrar(j);
 				} else
 					j++;
@@ -176,8 +173,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		Coste coste = null;
 
 		// Busca el vertice origen
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(o))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(o))
 			i++;
 
 		// Si existe, busca el vertice destino y devuelve el peso de la arista
@@ -200,8 +196,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		int i = 1;
 
 		// Busca el vertice
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(v))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(v))
 			i++;
 
 		// Si lo encuentra, devuelve su grado de entrada. Si no, devuelve cero
@@ -215,8 +210,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		int i = 1;
 
 		// Busca el vertice
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(v))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(v))
 			i++;
 
 		// Si lo encuentra, devuelve su grado de salida. Si no, devuelve cero
@@ -231,15 +225,13 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		Lista<Clave> sucesores = new Lista<Clave>();
 
 		// Busca el vertice
-		while (i <= vertices.longitud()
-				&& !vertices.consultar(i).clave.equals(v))
+		while (i <= vertices.longitud() && !vertices.consultar(i).clave.equals(v))
 			i++;
 
 		// Si lo encuentra, introduce sus sucesores a la lista
 		if (i <= vertices.longitud())
 			for (int j = 1; j <= aristas.consultar(i).longitud(); j++)
-				sucesores.insertar(j,
-						aristas.consultar(i).consultar(j).destino.clave);
+				sucesores.insertar(j, aristas.consultar(i).consultar(j).destino.clave);
 
 		return sucesores;
 	}
@@ -283,43 +275,77 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		for (int i = 1; i <= vertices.longitud(); i++) {
 			texto += vertices.consultar(i).clave + " --> ";
 			for (int j = 1; j <= aristas.consultar(i).longitud(); j++)
-				texto += aristas.consultar(i).consultar(j).destino.clave + "("
-						+ aristas.consultar(i).consultar(j).coste + ") ";
+				texto += aristas.consultar(i).consultar(j).destino.clave + "(" + aristas.consultar(i).consultar(j).coste
+						+ ") ";
 			texto += "\n";
 		}
 
 		return texto;
 	}
-	
 
-	   
-	public static <Clave, InfoVertice, Coste> void profREC(Grafo<Clave, InfoVertice, Coste> gr, Clave inicio, Lista<Clave> noVisitados){
-		
-		System.out.println("*VISITO: "+inicio); //visito
-		noVisitados.borrar(noVisitados.buscar(inicio));//elimino el vértice visitado de la lista de no visitados
-		System.out.println("\tNoVisitados: "+noVisitados);
-		
-		Lista<Clave> sucesores = gr.listaSucesores(inicio); //sucesores del vértice visitado	
-		System.out.println("\tSucesores de "+inicio+": "+sucesores);
-		//recorro los sucesores. Si alguno NO está visitado profundizo y lo visito
-		for (int i = 1; i <= sucesores.longitud() ; i++){
+	public static <Clave, InfoVertice, Coste> void profREC(Grafo<Clave, InfoVertice, Coste> gr, Clave inicio,
+			Lista<Clave> noVisitados) {
+
+		System.out.println("*VISITO: " + inicio); // visito
+		noVisitados.borrar(noVisitados.buscar(inicio));// elimino el vértice visitado de la lista de no visitados
+		System.out.println("\tNoVisitados: " + noVisitados);
+
+		Lista<Clave> sucesores = gr.listaSucesores(inicio); // sucesores del vértice visitado
+		System.out.println("\tSucesores de " + inicio + ": " + sucesores);
+		// recorro los sucesores. Si alguno NO está visitado profundizo y lo visito
+		for (int i = 1; i <= sucesores.longitud(); i++) {
 			Clave v = sucesores.consultar(i);
-			if (noVisitados.buscar(v)!=0){ //si el sucesor i-esimo está en no visitados, profundizo
+			if (noVisitados.buscar(v) != 0) { // si el sucesor i-esimo está en no visitados, profundizo
 				profREC(gr, v, noVisitados);
-			}//if	
-		}//for			
-	}//profREC
-	
-	public static <Clave, InfoVertice, Coste> void profundidad (Grafo<Clave, InfoVertice, Coste> gr, Clave inicio){
+			} // if
+		} // for
+	}// profREC
+
+	public static <Clave, InfoVertice, Coste> void profundidad(Grafo<Clave, InfoVertice, Coste> gr, Clave inicio) {
 		Lista<Clave> noVisitados = gr.listaVertices();
 		profREC(gr, inicio, noVisitados);
-		while (noVisitados.esVacia() == false){
+		while (noVisitados.esVacia() == false) {
 			System.out.println("\n**Nueva componente conexa**\n");
-			profREC(gr, noVisitados.consultar(1), noVisitados);			
-		}//while
-	}//profundidad
-	
-	
+			profREC(gr, noVisitados.consultar(1), noVisitados);
+		} // while
+	}// profundidad
+
+	public static <Clave, InfoVertice, Coste> int verticesAislados(Grafo<Clave, InfoVertice, Coste> grafo) {
+		int aislados = 0;
+		for (int i = 0; i < grafo.numVertices(); i++) {
+			int sucesores = grafo.vertices.consultar(i).gradoSalida;
+			int predecesores = grafo.vertices.consultar(i).gradoEntrada;
+			if (sucesores + predecesores == 0)
+				aislados++;
+		}
+		return aislados;
+	}
+
+	public static <Clave, InfoVertice, Coste> Lista<Clave> listaVerticesBucle(Grafo<Clave, InfoVertice, Coste> grafo) {
+		Lista<Clave> lista = new Lista<Clave>();
+		int numVert = grafo.numVertices();
+		for (int i = 1; i <= numVert; i++) {
+
+			Clave v = grafo.listaVertices().consultar(i);
+			Lista<Clave> sucesores = new Lista<Clave>();
+			if (sucesores.buscar(v) > 0)
+				lista.insertar(lista.longitud()+1, v);
+
+		}
+		return lista;
+	}
+
+	public static <Clave, InfoVertice, Coste> int gradoGrafo(Grafo<Clave, InfoVertice, Coste> grafo) {
+		int grado = 0;
+		for (int i = 0; i < grafo.numVertices(); i++) {
+			int sucesores = grafo.vertices.consultar(i).gradoSalida;
+			int predecesores = grafo.vertices.consultar(i).gradoEntrada;
+			int gradoVertice = sucesores + predecesores;
+			grado = Math.max(grado, gradoVertice);
+		}
+		return grado;
+	}
+
 	public static void main(String args[]) {
 		Grafo<String, String, Integer> grafoCiudades = new Grafo<String, String, Integer>();
 		grafoCiudades.insertarVertice("BAR", "Barcelona");
@@ -348,28 +374,25 @@ public class Grafo<Clave, InfoVertice, Coste> {
 		grafoCiudades.insertarArista("VAL", "SEV", 697);
 
 		grafoCiudades.insertarArista("SEV", "MAD", 538);
-		
+
 		grafoCiudades.insertarArista("CUE", "JAE", 356);
 
 		System.out.println(grafoCiudades);
 		/*
-		System.out.println("NumVertices= " + grafoCiudades.numVertices());
-		System.out.println("ListaSucesores(BAR)\n"
-				+ grafoCiudades.listaSucesores("BAR"));
-		System.out.println("ListaPredecesores(MAD)\n"
-				+ grafoCiudades.listaPredecesores("MAD"));
+		 * System.out.println("NumVertices= " + grafoCiudades.numVertices());
+		 * System.out.println("ListaSucesores(BAR)\n" +
+		 * grafoCiudades.listaSucesores("BAR"));
+		 * System.out.println("ListaPredecesores(MAD)\n" +
+		 * grafoCiudades.listaPredecesores("MAD"));
+		 * 
+		 * System.out.println("Recorrido en profundidad");
+		 */
+		// grafoCiudades.testCiclicidad();
 
-		System.out.println("Recorrido en profundidad");
-		*/
-		//grafoCiudades.testCiclicidad();
-		
 		profundidad(grafoCiudades, "BAR");
 
-		
 		System.out.println("\n*** FIN ***");
-		
-	}//main
 
-}//class
+	}// main
 
-
+}// class
