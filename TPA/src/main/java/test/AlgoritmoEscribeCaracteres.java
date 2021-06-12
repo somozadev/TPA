@@ -43,5 +43,29 @@ public class AlgoritmoEscribeCaracteres {
 
         /* QUEDA HAECER SU PSEUDOCODIGO Y EL CALCULO RAZONADO DE LA EFICIENCIA */
     }
+    
+    /* GetElements()
+    
+    public ArrayList<T> GetElementsInlastLevel() {
+        ArrayList<T> elements = new ArrayList<T>();
+        RecursiveGet(this, elements);
+        return elements;
+    }
+
+    private void RecursiveGet(Tree<T> tree, ArrayList<T> elements) {
+        if (!tree.isEmpty()) {
+            if (tree.GetTreeLeafNodes() > 1) {
+                RecursiveGet(tree.LeftChild(), elements);
+                RecursiveGet(tree.RightChild(), elements);
+
+            } else {
+                elements.add(tree.mainNode.info);
+            }
+        }
+
+    }
+    
+    
+    */
 
 }
