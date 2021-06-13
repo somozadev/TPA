@@ -235,6 +235,8 @@ public class Grafo<Clave, InfoVertice, Coste> {
 
 		return sucesores;
 	}
+	
+	
 
 	public Lista<Clave> listaPredecesores(Clave v) {
 		Lista<Clave> predecesores = new Lista<Clave>();
@@ -268,6 +270,22 @@ public class Grafo<Clave, InfoVertice, Coste> {
 			listaVertices.insertar(1, vertices.consultar(i).clave);
 
 		return listaVertices;
+	}
+
+	public Lista<Par<Clave, Clave>> listaAristas() {
+
+		Lista<Par<Clave, Clave>> listado = new Lista<Par<Clave, Clave>>();
+		Lista<Clave> vertices = this.listaVertices();
+		for (int i = 1; i <= vertices.longitud(); i++) {
+			Clave origen = vertices.consultar(i);
+			Lista<Clave> sucesores = this.listaSucesores(origen);
+			for (int j = 1; j <= sucesores.longitud(); j++) {
+				Clave destino = sucesores.consultar(j);
+				Par<Clave, Clave> arista = new Par<Clave, Clave>(origen, destino);
+				listado.insertar(1, arista); 
+			}
+		}
+		return listado;
 	}
 
 	public String toString() {
@@ -329,7 +347,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 			Clave v = grafo.listaVertices().consultar(i);
 			Lista<Clave> sucesores = new Lista<Clave>();
 			if (sucesores.buscar(v) > 0)
-				lista.insertar(lista.longitud()+1, v);
+				lista.insertar(lista.longitud() + 1, v);
 
 		}
 		return lista;
