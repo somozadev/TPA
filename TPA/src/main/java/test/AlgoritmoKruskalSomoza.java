@@ -1,5 +1,11 @@
 package test;
-
+/**
+ * 
+ * @author Marcos Somoza Corral
+ * @expediente 21711787
+ * @fecha 13-06-2021
+ *
+ **/
 public class AlgoritmoKruskalSomoza<Clave, InfoVertice, Coste> {
 
     int costeTotal = 0;

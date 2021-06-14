@@ -7,7 +7,7 @@ package test;
  *
  **/
 
-public class AlgoritmoEscribeCaracteres {
+public class AlgoritmoEscribeCaracteresSomoza {
     /*
      * EJERCICIO 2 Diseñar (pseudocódigo) e implementar en Java una función que
      * reciba como entrada un árbol binario de letras, y que escriba por pantalla
@@ -41,10 +41,10 @@ public class AlgoritmoEscribeCaracteres {
         System.out.println("Elementos en el último nivel: " + raiz.GetElementsInlastLevel());
 
 
-        /* QUEDA HAECER SU PSEUDOCODIGO Y EL CALCULO RAZONADO DE LA EFICIENCIA */
+        
     }
     
-    /* GetElements()
+    /* GetElements(), se encuentra en la clase Grafo.java, para una mejor accesibilidad al método.
     
     public ArrayList<T> GetElementsInlastLevel() {
         ArrayList<T> elements = new ArrayList<T>();
