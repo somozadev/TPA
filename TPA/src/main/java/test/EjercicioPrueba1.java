@@ -14,34 +14,34 @@ public class EjercicioPrueba1 {
         int depth = tree.GetTreeDepth();
         double maxNodes = Math.pow(2, depth) - 1;
         
-        double chargeFactor = CountEmptyNodes(tree, 0) / maxNodes;
+        double chargeFactor = CountFilledNodes(tree, 0) / maxNodes;
         return chargeFactor;
     }
 
-    private int CountEmptyNodes(Tree<Character> tree, int contador) {
+    private int CountFilledNodes(Tree<Character> tree, int contador) {
         if (tree.isEmpty())
             return contador;
-        if (tree.MainNode().equals(' ')) {
+        if (tree.MainNode() != (null)) {
             contador++;
         }
-        contador = CountEmptyNodes(tree.LeftChild(), contador);
-        contador = CountEmptyNodes(tree.RightChild(), contador);
+        contador = CountFilledNodes(tree.LeftChild(), contador);
+        contador = CountFilledNodes(tree.RightChild(), contador);
         return contador;
     }
 
     public static void main(String[] args) {
 
-        Tree<Character> s3lg = new Tree<Character>(new Tree<Character>(), ' ', new Tree<Character>()); // Nivel 4
-        Tree<Character> s3rg = new Tree<Character>(new Tree<Character>(), ' ', new Tree<Character>()); // Nivel 4
-        Tree<Character> s3lf = new Tree<Character>(new Tree<Character>(), ' ', new Tree<Character>()); // Nivel 4
-        Tree<Character> s3rf = new Tree<Character>(new Tree<Character>(), ' ', new Tree<Character>()); // Nivel 4
-        Tree<Character> s3le = new Tree<Character>(new Tree<Character>(), ' ', new Tree<Character>()); // Nivel 4
+        Tree<Character> s3lg = new Tree<Character>(new Tree<Character>(), null, new Tree<Character>()); // Nivel 4
+        Tree<Character> s3rg = new Tree<Character>(new Tree<Character>(), null, new Tree<Character>()); // Nivel 4
+        Tree<Character> s3lf = new Tree<Character>(new Tree<Character>(), null, new Tree<Character>()); // Nivel 4
+        Tree<Character> s3rf = new Tree<Character>(new Tree<Character>(), null, new Tree<Character>()); // Nivel 4
+        Tree<Character> s3le = new Tree<Character>(new Tree<Character>(), null, new Tree<Character>()); // Nivel 4
         Tree<Character> s3re = new Tree<Character>(new Tree<Character>(), 'F', new Tree<Character>()); // Nivel 4
-        Tree<Character> s3ld = new Tree<Character>(new Tree<Character>(), ' ', new Tree<Character>()); // Nivel 4
-        Tree<Character> s3rd = new Tree<Character>(new Tree<Character>(), ' ', new Tree<Character>()); // Nivel 4
+        Tree<Character> s3ld = new Tree<Character>(new Tree<Character>(), null, new Tree<Character>()); // Nivel 4
+        Tree<Character> s3rd = new Tree<Character>(new Tree<Character>(), null, new Tree<Character>()); // Nivel 4
 
-        Tree<Character> s2la = new Tree<Character>(s3lg, ' ', s3rg); // Nivel 3
-        Tree<Character> s2ra = new Tree<Character>(s3lf, ' ', s3rf); // Nivel 3
+        Tree<Character> s2la = new Tree<Character>(s3lg, null, s3rg); // Nivel 3
+        Tree<Character> s2ra = new Tree<Character>(s3lf, null, s3rf); // Nivel 3
         Tree<Character> s2lb = new Tree<Character>(s3le, 'D', s3re); // Nivel 3
         Tree<Character> s2rb = new Tree<Character>(s3ld, 'E', s3rd); // Nivel 3
 
