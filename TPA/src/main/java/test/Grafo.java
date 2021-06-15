@@ -235,8 +235,6 @@ public class Grafo<Clave, InfoVertice, Coste> {
 
 		return sucesores;
 	}
-	
-	
 
 	public Lista<Clave> listaPredecesores(Clave v) {
 		Lista<Clave> predecesores = new Lista<Clave>();
@@ -282,7 +280,7 @@ public class Grafo<Clave, InfoVertice, Coste> {
 			for (int j = 1; j <= sucesores.longitud(); j++) {
 				Clave destino = sucesores.consultar(j);
 				Par<Clave, Clave> arista = new Par<Clave, Clave>(origen, destino);
-				listado.insertar(1, arista); 
+				listado.insertar(1, arista);
 			}
 		}
 		return listado;
@@ -304,12 +302,12 @@ public class Grafo<Clave, InfoVertice, Coste> {
 	public static <Clave, InfoVertice, Coste> void profREC(Grafo<Clave, InfoVertice, Coste> gr, Clave inicio,
 			Lista<Clave> noVisitados) {
 
-		System.out.println("*VISITO: " + inicio); // visito
+		// System.out.println("*VISITO: " + inicio); // visito
 		noVisitados.borrar(noVisitados.buscar(inicio));// elimino el vértice visitado de la lista de no visitados
-		System.out.println("\tNoVisitados: " + noVisitados);
+		// System.out.println("\tNoVisitados: " + noVisitados);
 
 		Lista<Clave> sucesores = gr.listaSucesores(inicio); // sucesores del vértice visitado
-		System.out.println("\tSucesores de " + inicio + ": " + sucesores);
+		// System.out.println("\tSucesores de " + inicio + ": " + sucesores);
 		// recorro los sucesores. Si alguno NO está visitado profundizo y lo visito
 		for (int i = 1; i <= sucesores.longitud(); i++) {
 			Clave v = sucesores.consultar(i);

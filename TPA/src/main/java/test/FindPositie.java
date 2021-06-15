@@ -1,3 +1,5 @@
+package test;
+
 public class FindPositie {
     public static int FindHalfPosDnW(int[] array, int start, int end) { // T(N) pertenece a 0 = log 2 n
         int half = (start + end) / 2;

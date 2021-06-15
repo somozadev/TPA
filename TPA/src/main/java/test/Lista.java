@@ -24,7 +24,7 @@ public class Lista<T> {
         return longitud == 0;
     }
 
-    T consultar(int pos) {
+    public T consultar(int pos) {
         return contenedor[pos - 1];
     }
 
